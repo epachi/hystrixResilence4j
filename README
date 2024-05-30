@@ -1,3 +1,44 @@
+The error you’re encountering is a NoSuchMethodError, which typically indicates that a method you’re trying to call doesn’t exist. This can happen when upgrading to a new major version of a library like Spring Boot, where some methods from the previous version may have been removed or changed.
+
+Here’s a step-by-step guide to help you resolve this issue:
+
+1. Review Dependencies: Ensure all your project dependencies are compatible with Spring Boot 3. 	
+	You might need to update some dependencies to versions that are compatible with Spring Boot 3[1][2].
+2. Check for Deprecated APIs: The warnings about deprecated APIs suggest that you’re using old APIs that have been removed in Spring Boot 3. 
+	You should update your code to use the new APIs[1].
+3. Update Configuration Properties: Some configuration properties might have been renamed or removed in Spring Boot 3. 
+	Use the spring-boot-properties-migrator to help identify and update these properties[1][2].
+4. Migrate to Jakarta EE 10: Spring Boot 3 has moved to Jakarta EE 10,
+	 which means you’ll need to update your dependencies and possibly your import statements from javax.* to jakarta.*[2].
+5. Update Java Version: Spring Boot 3 requires Java 17 or later. Make sure your project is set up to use Java 17 or a newer version[1].
+6. Resolve NoSuchMethodError: For the specific NoSuchMethodError you’re facing, 	
+	you’ll need to find the new method that replaces the one that’s causing the error. 
+	This might involve looking at the Spring Boot 3 documentation or searching for the method name to see if it has been replaced or moved[3].
+7. Follow Migration Guides: Utilize the Spring Boot 3.0 Migration Guide and any other relevant migration	
+	 guides provided by the Spring team to assist with the upgrade process[1].
+
+Here’s an example of how you might include the spring-boot-properties-migrator in your pom.xml:
+
+XML
+
+<dependency>
+    <groupId>org.springframework.boot</groupId>
+    <artifactId>spring-boot-properties-migrator</artifactId>
+    <scope>runtime</scope>
+</dependency>
+AI-generated code. Review and use carefully. More info on FAQ.
+This will generate a report at startup of deprecated property names and temporarily migrate the properties at runtime, helping you to identify necessary changes.
+
+Remember to also address the warnings about using the default keystore and certificate by following the instructions in the user guide to create your own.
+
+If you continue to encounter issues after following these steps, you may need to consult the detailed error logs and stack traces to pinpoint the exact cause of the problem. Upgrading major versions can be complex, so take it one step at a time and make sure to test thoroughly after each change.
+[1] https://github.com/spring-projects/spring-boot/wiki/Spring-Boot-3.0-Migration-Guide
+[2] https://www.baeldung.com/spring-boot-3-migration
+[3] https://trycatchdebug.net/news/1140036/spring-boot-upgrade-error-servletexception-nosuchmethoderror
+[4] https://www.baeldung.com/junit-nosuchmethoderror
+[5] https://github.com/spring-projects/spring-boot/issues/34527
+
+==============================================================================
 1. What is HystrixBadRequestException and how to replace it using Resilience4j
 
 	 What is HystrixBadRequestException and how to replace it using Resilience4j
