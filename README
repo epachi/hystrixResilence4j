@@ -1,3 +1,5 @@
+https://stackoverflow.com/questions/77353532/flyway-problems-configuration-with-spring-boot-3-1-0
+
 The error you’re encountering is a NoSuchMethodError, which typically indicates that a method you’re trying to call doesn’t exist. This can happen when upgrading to a new major version of a library like Spring Boot, where some methods from the previous version may have been removed or changed.
 
 Here’s a step-by-step guide to help you resolve this issue:
