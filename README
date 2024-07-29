@@ -1,3 +1,15 @@
+You can verify the password for your JKS keystore file using the keytool command. Here’s a simple way to do it:
+
+Open your terminal or command prompt.
+Run the following command, replacing <keystorefile> with the path to your keystore file and <passwordtocheck> with your password:
+keytool -list -keystore <keystorefile> -storepass <passwordtocheck>
+
+If the password is correct, you’ll see a list of the entries in the keystore. If the password is incorrect, you’ll get an error message indicating that the keystore was tampered with or the password was incorrect1.
+
+Give it a try and let me know if you encounter any issues!
+
+================================================
+
 From github, I cloned a Java project with gradle as build tool but when I do gradle sync in IntelliJ by clicking the gradle refresh button, I got the error Permission denied. This error only happened starting from yesterday. Please let me know how to fix
 Copilot
 Using
