@@ -1,3 +1,38 @@
+I have an application running Spring Boot 2, JPA talking to MS SQL server as DB. A stored proceduce which return a generated number is called from Java. It is working so far but the stored procedure stop working when I upgrade the application to Spring Boot 3. Please resolve the problem.
+
+Copilot
+Using
+the web
+Sent by Copilot:
+Upgrading from Spring Boot 2 to Spring Boot 3 involves several changes that might affect how stored procedures are called. Here are some steps to help you resolve the issue:
+
+Check Dependencies: Ensure that all your dependencies are compatible with Spring Boot 3. Specifically, check the versions of spring-data-jpa and hibernate-core.
+Update JPA and Hibernate: Spring Boot 3 uses Jakarta EE 10, which means you need to update your JPA and Hibernate dependencies. For example:
+XML
+
+<dependency>
+    <groupId>jakarta.persistence</groupId>
+    <artifactId>jakarta.persistence-api</artifactId>
+    <version>3.1.0</version>
+</dependency>
+<dependency>
+    <groupId>org.hibernate.orm</groupId>
+    <artifactId>hibernate-core</artifactId>
+    <version>6.1.4.Final</version>
+</dependency>
+AI-generated code. Review and use carefully. More info on FAQ.
+Update Stored Procedure Annotations: If you are using the @Procedure annotation, ensure it is correctly configured. There have been changes in how parameters are handled. For example:
+Java
+
+@Procedure(name = "yourStoredProcedureName")
+Integer getGeneratedNumber(@Param("paramName") Integer param);
+AI-generated code. Review and use carefully. More info on FAQ.
+Check Parameter Handling: Spring Boot 3 treats stored procedure parameters as positional rather than named1. Ensure that the order of parameters in your Java code matches the order in the stored procedure.
+Review Migration Guides: Refer to the Spring Boot 3 migration guides for detailed steps and common issues:
+Baeldung Migration Guide2
+Spring Boot GitHub Migration Guide3
+By following these steps, you should be able to resolve the issue with your stored procedure. If you encounter specific errors, feel free to share them, and I can help troubleshoot further.
+
 You can verify the password for your JKS keystore file using the keytool command. Here’s a simple way to do it:
 
 Open your terminal or command prompt.
