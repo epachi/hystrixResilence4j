@@ -43,6 +43,9 @@ If the password is correct, you’ll see a list of the entries in the keystore. 
 
 Give it a try and let me know if you encounter any issues!
 
+https://www.baeldung.com/spring-boot-3-migration
+https://github.com/spring-projects/spring-boot/wiki/Spring-Boot-3.0-Migration-Guide
+
 ================================================
 
 From github, I cloned a Java project with gradle as build tool but when I do gradle sync in IntelliJ by clicking the gradle refresh button, I got the error Permission denied. This error only happened starting from yesterday. Please let me know how to fix
