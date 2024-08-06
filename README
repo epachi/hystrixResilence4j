@@ -1,3 +1,6 @@
+https://github.com/springframeworkguru/tsbb2b-sfg-brewery
+
+
 I have an application running Spring Boot 2, JPA talking to MS SQL server as DB. A stored proceduce which return a generated number is called from Java. It is working so far but the stored procedure stop working when I upgrade the application to Spring Boot 3. Please resolve the problem.
 
 Edit
