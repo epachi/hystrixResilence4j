@@ -1,17 +1,45 @@
+
+To validate a String that won't be inserted into an Excel spreadsheet to execute a command, you can use a combination of string validation techniques and input sanitization. Here's an example of how you can do this in Java:
+javaCopyimport java.util.regex.Pattern;
+
+public class InputValidator {
+    private static final Pattern EXCEL_FORMULA_PATTERN = Pattern.compile("^(=|@).*");
+
+    public static boolean isValidInput(String input) {
+        // Check for Excel formula patterns
+        if (EXCEL_FORMULA_PATTERN.matcher(input).matches()) {
+            return false;
+        }
+
+        // Additional validation checks (e.g., length, character restrictions)
+        if (input.length() > 100 || !isAlphanumericWithSpecialChars(input)) {
+            return false;
+        }
+
+        return true;
+    }
+
+    private static boolean isAlphanumericWithSpecialChars(String input) {
+        // Allow only alphanumeric characters and a few special characters
+        String regex = "^[a-zA-Z0-9_@#$%^&*()+-=\\[\\]{}|;:,.<>/?\"'` ]+$";
+        return Pattern.matches(regex, input);
+    }
+}
+Here's how the code works:
+
+The EXCEL_FORMULA_PATTERN is a regular expression that checks if the input starts with an equal sign (=) or an at symbol (@), which are commonly used to denote Excel formulas.
+The isValidInput method first checks if the input matches the Excel formula pattern. If it does, the method returns false, indicating that the input is not valid.
+Additionally, the method checks the length of the input (in this example, limiting it to 100 characters) and ensures that the input contains only alphanumeric characters and a few selected special characters using the isAlphanumericWithSpecialChars method.
+The isAlphanumericWithSpecialChars method uses a regular expression to validate the input string, allowing only alphanumeric characters and a few special characters (_, @, #, $, %, ^, &, *, (, ), +, -, =, [, ], {, }, |, ;, :, ,, ., <, >, /, ?, ", ',  ).
+
+You can use the isValidInput method to validate the user input before processing or storing it. If the input is not valid, you can either reject it or sanitize it further to ensure that it does not contain any potentially harmful content.
+Remember to adjust the regular expressions and validation rules based on your specific requirements and the context of your application.
+
+===========================================================================
 https://github.com/nahsra/antisamy/tree/main/src/main/resources
 
 
-<?xml version="1.0" encoding="ISO-8859-1"?>
-<anti-samy-rules>
-    <directives>
-        <directive name="omitXmlDeclaration" value="true" />
-        <directive name="omitDoctypeDeclaration" value="true" />
-    </directives>
 
-    <common-rules>
-        <rule name="onUnknownTag" action="purge" />
-    </common-rules>
-</anti-samy-rules>
 
 
 https://github.com/springframeworkguru/tsbb2b-sfg-brewery
