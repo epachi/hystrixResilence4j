@@ -1,3 +1,16 @@
+<?xml version="1.0" encoding="ISO-8859-1"?>
+<anti-samy-rules>
+    <directives>
+        <directive name="omitXmlDeclaration" value="true" />
+        <directive name="omitDoctypeDeclaration" value="true" />
+    </directives>
+
+    <common-rules>
+        <rule name="onUnknownTag" action="purge" />
+    </common-rules>
+</anti-samy-rules>
+
+
 https://github.com/springframeworkguru/tsbb2b-sfg-brewery
 
 
