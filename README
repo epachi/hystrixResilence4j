@@ -1,4 +1,7 @@
 
+ @Pattern(regexp = "^[^=+\\-@|]*$", message = "Field contains characters that may cause issues in Excel")
+    private String x;
+
 To validate a String that won't be inserted into an Excel spreadsheet to execute a command, you can use a combination of string validation techniques and input sanitization. Here's an example of how you can do this in Java:
 javaCopyimport java.util.regex.Pattern;
 
