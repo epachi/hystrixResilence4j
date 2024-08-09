@@ -1,4 +1,6 @@
 
+
+    private static final String REGEX_PATTERN = "^[=@+\\-].*";
  @Pattern(regexp = "^[^=+\\-@|]*$", message = "Field contains characters that may cause issues in Excel")
     private String x;
 
